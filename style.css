@@ -2440,6 +2440,11 @@ BOX HOVER 8
 	width: 50px;
 }
 
+.about-area .area-image-content-about > img {
+	margin-left: -50px;
+	width: 100%;
+}
+
 .about-area .area-image-content > img {
 	margin-left: -50px;
 	width: 100%;
@@ -4568,4 +4573,99 @@ section.contact-area {
 	.welcome-text-area .welcome-text h4 {
 		margin-bottom: 20px;
 	}
+}
+
+/* CUSTOM CSS UNTUK VISION CARDS - SEMUA ACTIVE */
+
+/* Buat semua card active secara default */
+.pricing-area .single-price {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border: none;
+	box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+	transition: all 0.4s ease;
+	transform: scale(1);
+}
+
+/* Hapus style active khusus untuk card tengah */
+.pricing-area .single-price.active {
+	transform: scale(1);
+	box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+}
+
+/* Hover effect - card akan lebih besar dan shadow lebih kuat */
+.pricing-area .single-price:hover {
+	transform: scale(1.05) translateY(-10px);
+	box-shadow: 0 20px 50px rgba(108, 99, 255, 0.5);
+	z-index: 10;
+}
+
+/* Warna text semua jadi putih karena background gradient */
+.pricing-area .single-price .price-thumb-hidding,
+.pricing-area .single-price .price-rate,
+.pricing-area .single-price .price-title,
+.pricing-area .single-price .price-details,
+.pricing-area .single-price .price-details ul li {
+	color: #ffffff;
+}
+
+/* Icon checkmark dan minus jadi putih */
+.pricing-area .single-price .price-details ul li i {
+	color: #ffffff;
+}
+
+/* Background image tetap visible */
+.pricing-area .single-price .price-thumb-hidding img {
+	opacity: 0.9;
+	filter: brightness(1.2);
+}
+
+/* Responsive - pastikan semua card sama tinggi */
+.pricing-area .single-price {
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Optional: Animasi saat page load */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.pricing-area .single-price {
+	animation: fadeInUp 0.6s ease forwards;
+	opacity: 0;
+}
+
+.pricing-area .single-price:nth-child(1) {
+	animation-delay: 0.2s;
+}
+
+.pricing-area .single-price:nth-child(2) {
+	animation-delay: 0.4s;
+}
+
+.pricing-area .single-price:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+/* Glow effect saat hover */
+.pricing-area .single-price:hover::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: inherit;
+	z-index: -1;
+	filter: blur(15px);
+	opacity: 0.7;
 }
