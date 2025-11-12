@@ -1924,6 +1924,15 @@ BOX HOVER 8
 	transition: 0.5s;
 }
 
+.faqs-mockup-3 {
+	animation: 5s ease 0s normal none infinite running zbounce;
+	position: relative;
+	text-align: center;
+	top: 300px;
+	transform: translateY(-50%);
+	transition: 0.5s;
+}
+
 .panel.panel-default {
 	border: 0 none;
 	border-radius: 0;
@@ -4308,6 +4317,10 @@ section.contact-area {
 	margin-bottom: 0px !important;
 }
 
+section.doro-legal-page {
+	margin-bottom: 0px !important;
+}
+
 .doro-security-area {
 	background: #f8f9fa;
 }
@@ -4409,7 +4422,7 @@ section.contact-area {
 	border-radius: 10px;
 	text-align: center;
 	transition: all 0.3s ease;
-	height: 250px;
+	height: 300px;
 	max-height: 350px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
@@ -4579,7 +4592,7 @@ section.contact-area {
 
 /* Buat semua card active secara default */
 .pricing-area .single-price {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #00a6f8 0%, #007cf6 100%);
 	border: none;
 	box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
 	transition: all 0.4s ease;
@@ -4663,9 +4676,18 @@ section.contact-area {
 	left: -2px;
 	right: -2px;
 	bottom: -2px;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #00a6f8 0%, #007cf6 100%);
 	border-radius: inherit;
 	z-index: -1;
 	filter: blur(15px);
 	opacity: 0.7;
+}
+
+.footer-social-icons svg {
+	fill: white; /* ubah warna isi ikon */
+	transition: fill 0.3s ease;
+}
+
+.footer-social-icons a:hover svg {
+	fill: #ff4081; /* warna saat hover, opsional */
 }
