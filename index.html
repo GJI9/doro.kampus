@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="id">
 	<head>
 		<!--====== USEFULL META ======-->
 		<meta charset="UTF-8" />
@@ -26,6 +26,7 @@
 		<meta property="og:image" content="https://dorokampus.com/assets/img/icon.png" />
 		<meta property="og:site_name" content="Doro Kampus" />
 		<meta property="og:locale" content="id_ID" />
+		<meta property="og:locale:alternate" content="en_US" />
 
 		<!--====== TWITTER CARD META TAGS ======-->
 		<meta name="twitter:card" content="summary_large_image" />
@@ -62,7 +63,7 @@
 					"telephone": "+62-821-2856-1022",
 					"contactType": "customer service",
 					"email": "support@dorokampus.com",
-					"availableLanguage": "Indonesian"
+					"availableLanguage": ["Indonesian", "English"]
 				},
 				"sameAs": ["https://www.instagram.com/doro_kampus", "https://www.tiktok.com/@dorokampus"]
 			}
@@ -87,6 +88,51 @@
 		<!--====== MAIN STYLESHEETS ======-->
 		<link href="style.css" rel="stylesheet" />
 		<link href="assets/css/responsive.css" rel="stylesheet" />
+
+		<!--====== LANGUAGE SWITCH ======-->
+		<style>
+			li.doro-lang-switch {
+				display: inline-flex !important;
+				align-items: center;
+				gap: 2px;
+				float: none !important;
+				vertical-align: middle;
+				margin-left: 12px;
+			}
+			li.doro-lang-switch a.lang-opt {
+				display: inline-block !important;
+				float: none !important;
+				padding: 0 6px !important;
+				line-height: 1.4 !important;
+				font-weight: 700;
+				font-size: 14px;
+				color: inherit;
+				opacity: 0.55;
+				text-decoration: none;
+				cursor: pointer;
+				background: none !important;
+			}
+			li.doro-lang-switch a.lang-opt:hover {
+				opacity: 0.85;
+			}
+			li.doro-lang-switch a.lang-opt.active {
+				opacity: 1;
+				text-decoration: underline;
+			}
+			li.doro-lang-switch .lang-sep {
+				opacity: 0.4;
+				font-weight: 400;
+			}
+			/* Mobile (stellarnav) menu: keep the switch on its own tidy row */
+			.stellarnav.mobile li.doro-lang-switch {
+				justify-content: center;
+				padding: 8px 0;
+			}
+			/* stellarnav mistakes the switch for a dropdown and injects a toggle arrow — hide it */
+			li.doro-lang-switch .dd-toggle {
+				display: none !important;
+			}
+		</style>
 
 		<script src="assets/js/vendor/modernizr-2.8.3.min.js" defer></script>
 		<!--[if lt IE 9]>
@@ -134,10 +180,15 @@
 									</svg>
 									<div id="main-nav" class="stellarnav">
 										<ul id="nav" class="nav navbar-nav pull-right">
-											<li><a href="#home">Beranda</a></li>
-											<li><a href="#features">Fitur</a></li>
-											<li><a href="#about">Tentang Kami</a></li>
-											<li><a href="#contact">Program Pilot</a></li>
+											<li><a href="#home" data-i18n="nav.home">Beranda</a></li>
+											<li><a href="#features" data-i18n="nav.features">Fitur</a></li>
+											<li><a href="#about" data-i18n="nav.about">Tentang Kami</a></li>
+											<li><a href="#contact" data-i18n="nav.pilot">Program Pilot</a></li>
+											<li class="doro-lang-switch">
+												<a class="lang-opt" data-lang="id" role="button" tabindex="0" aria-label="Bahasa Indonesia">ID</a>
+												<span class="lang-sep">|</span>
+												<a class="lang-opt" data-lang="en" role="button" tabindex="0" aria-label="English">EN</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -161,8 +212,8 @@
 								<h4 class="wow fadeInUp" data-wow-delay="0.3s">
 									<a href="index.html" class="custom-logo-link default-logo"><img src="assets/img/logo-2.png" alt="logo" /></a>
 								</h4>
-								<h1 class="wow fadeInUp" data-wow-delay="0.6s">Semua Mahasiswa<span>Satu Platform</span></h1>
-								<p class="wow fadeInUp" data-wow-delay="0.9s">Jadwal, komunitas, dan InfoHub — satu ekosistem untuk mahasiswa Indonesia.</p>
+								<h1 class="wow fadeInUp" data-wow-delay="0.6s" data-i18n="hero.title">Semua Mahasiswa<span>Satu Platform</span></h1>
+								<p class="wow fadeInUp" data-wow-delay="0.9s" data-i18n="hero.desc">Jadwal, komunitas, dan InfoHub — satu ekosistem untuk mahasiswa Indonesia.</p>
 								<div class="my-custom-button mt40 xs-mt40 wow fadeInUp" data-wow-delay="1.2s">
 									<a href="https://play.google.com/store/apps/details?id=com.doromobileapps" target="_blank">
 										<img src="assets/img/cta/logo-google-play.webp" alt="google-play" height="50" width="150" />
@@ -196,8 +247,8 @@
 				<div class="row">
 					<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 						<div class="area-title sm-center xs-center">
-							<h4 class="subtitle">Fitur Utama</h4>
-							<h2>Semua fitur kampus favorit, dalam satu aplikasi mahasiswa.</h2>
+							<h4 class="subtitle" data-i18n="features.subtitle">Fitur Utama</h4>
+							<h2 data-i18n="features.title">Semua fitur kampus favorit, dalam satu aplikasi mahasiswa.</h2>
 						</div>
 					</div>
 				</div>
@@ -206,45 +257,45 @@
 						<div class="features-slider">
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-calendar"></i></div>
-								<h3>Timetable</h3>
-								<p>
+								<h3 data-i18n="feat.timetable.title">Timetable</h3>
+								<p data-i18n="feat.timetable.desc">
 									Buat jadwal kuliah satu klik, atur reminder, dan bagikan ke teman. Tulis ulasan kelas dan dosen agar teman lain bisa memilih lebih
 									baik.
 								</p>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-conversation"></i></div>
-								<h3>Komunitas</h3>
-								<p>Forum anonim dan forum real-name agar diskusi seru, tetapi aman.</p>
+								<h3 data-i18n="feat.community.title">Komunitas</h3>
+								<p data-i18n="feat.community.desc">Forum anonim dan forum real-name agar diskusi seru, tetapi aman.</p>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-document"></i></div>
-								<h3>InfoHub</h3>
-								<p>Satu tempat untuk semua peluang mahasiswa — beasiswa, magang, event, dan tools belajar — dikurasi otomatis dan mudah diakses.</p>
+								<h3 data-i18n="feat.infohub.title">InfoHub</h3>
+								<p data-i18n="feat.infohub.desc">Satu tempat untuk semua peluang mahasiswa — beasiswa, magang, event, dan tools belajar — dikurasi otomatis dan mudah diakses.</p>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-message"></i></div>
-								<h3>Chat Terbuka & Pesan Pribadi</h3>
-								<p>Ruang diskusi yang aman untuk berbagi cerita dan bertanya tanpa khawatir identitas terungkap.</p>
-								<span class="doro-coming-soon-badge">Segera Hadir</span>
+								<h3 data-i18n="feat.chat.title">Chat Terbuka & Pesan Pribadi</h3>
+								<p data-i18n="feat.chat.desc">Ruang diskusi yang aman untuk berbagi cerita dan bertanya tanpa khawatir identitas terungkap.</p>
+								<span class="doro-coming-soon-badge" data-i18n="badge.comingsoon">Segera Hadir</span>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-graph-pie"></i></div>
-								<h3>Tes Pengembangan Diri & Survei</h3>
-								<p>Ikuti berbagai tes kepribadian, minat bakat, dan survei kampus untuk mengenal diri lebih baik.</p>
-								<span class="doro-coming-soon-badge">Segera Hadir</span>
+								<h3 data-i18n="feat.test.title">Tes Pengembangan Diri & Survei</h3>
+								<p data-i18n="feat.test.desc">Ikuti berbagai tes kepribadian, minat bakat, dan survei kampus untuk mengenal diri lebih baik.</p>
+								<span class="doro-coming-soon-badge" data-i18n="badge.comingsoon">Segera Hadir</span>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-cart"></i></div>
-								<h3>Marketplace Mahasiswa</h3>
-								<p>Jual beli barang bekas, buku kuliah, dan kebutuhan kampus lainnya dengan sesama mahasiswa.</p>
-								<span class="doro-coming-soon-badge">Segera Hadir</span>
+								<h3 data-i18n="feat.marketplace.title">Marketplace Mahasiswa</h3>
+								<p data-i18n="feat.marketplace.desc">Jual beli barang bekas, buku kuliah, dan kebutuhan kampus lainnya dengan sesama mahasiswa.</p>
+								<span class="doro-coming-soon-badge" data-i18n="badge.comingsoon">Segera Hadir</span>
 							</div>
 							<div class="text-icon-box-2 single-features">
 								<div class="box-icon"><i class="dripicons-user-group"></i></div>
-								<h3>Fitur Teman (Student Matching)</h3>
-								<p>Temukan teman kuliah, partner project, atau study buddy berdasarkan minat dan jurusan yang sama.</p>
-								<span class="doro-coming-soon-badge">Segera Hadir</span>
+								<h3 data-i18n="feat.matching.title">Fitur Teman (Student Matching)</h3>
+								<p data-i18n="feat.matching.desc">Temukan teman kuliah, partner project, atau study buddy berdasarkan minat dan jurusan yang sama.</p>
+								<span class="doro-coming-soon-badge" data-i18n="badge.comingsoon">Segera Hadir</span>
 							</div>
 						</div>
 					</div>
@@ -264,10 +315,10 @@
 					</div>
 					<div class="col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 col-sm-12 col-xs-12">
 						<div class="area-content">
-							<h3 class="wow fadeInRight" data-wow-delay="0.3s">Tentang DORO</h3>
+							<h3 class="wow fadeInRight" data-wow-delay="0.3s" data-i18n="about.title">Tentang DORO</h3>
 							<div class="text-icon-box details-content-box wow fadeInRight" data-wow-delay="0.6s">
 								<div class="box-icon"><i class="dripicons-graph-pie"></i></div>
-								<p>
+								<p data-i18n="about.desc">
 									Doro adalah platform yang membantu mahasiswa Indonesia menjalani kehidupan kampus dengan lebih efisien dan terhubung. Dalam satu
 									aplikasi, kamu bisa mengatur jadwal, bergabung di komunitas, dan menemukan berbagai peluang mulai dari magang hingga beasiswa dengan
 									cepat.
@@ -299,25 +350,25 @@
 					</div>
 					<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
 						<div class="area-content">
-							<h4 class="subtitle">Mengapa DORO ?</h4>
-							<div class="wow fadeInUp mb40">
+							<h4 class="subtitle" data-i18n="about2.subtitle">Mengapa DORO ?</h4>
+							<div class="wow fadeInUp mb40" data-i18n="about2.problem">
 								Informasi akademik, pengumuman, beasiswa, dan komunitas kampus tersebar di banyak tempat - mahasiswa harus mencarinya satu per satu.
 							</div>
-							<h3 class="wow fadeInRight" data-wow-delay="0.3s">Solusi</h3>
+							<h3 class="wow fadeInRight" data-wow-delay="0.3s" data-i18n="about2.solution">Solusi</h3>
 							<div class="text-icon-box about-process-box-2 wow fadeInUp mb20" data-wow-delay="0.3s">
 								<div class="box-icon"><i class="dripicons-user"></i></div>
-								<h4 class="font20">Integrasi Informasi</h4>
-								<p>Semua tautan penting mahasiswa di satu layar.</p>
+								<h4 class="font20" data-i18n="about2.item1.title">Integrasi Informasi</h4>
+								<p data-i18n="about2.item1.desc">Semua tautan penting mahasiswa di satu layar.</p>
 							</div>
 							<div class="text-icon-box about-process-box-2 wow fadeInUp mb20" data-wow-delay="0.6s">
 								<div class="box-icon"><i class="dripicons-cloud-download"></i></div>
-								<h4 class="font20">Komunitas Terhubung</h4>
-								<p>Forum aman dan terstruktur untuk berbagi dan berdiskusi.</p>
+								<h4 class="font20" data-i18n="about2.item2.title">Komunitas Terhubung</h4>
+								<p data-i18n="about2.item2.desc">Forum aman dan terstruktur untuk berbagi dan berdiskusi.</p>
 							</div>
 							<div class="text-icon-box about-process-box-2 wow fadeInUp" data-wow-delay="0.9s">
 								<div class="box-icon"><i class="dripicons-trophy"></i></div>
-								<h4 class="font20">Aksi Cepat</h4>
-								<p>Simpan, bagikan, dan aktifkan notifikasi agar info langsung bisa ditindaklanjuti.</p>
+								<h4 class="font20" data-i18n="about2.item3.title">Aksi Cepat</h4>
+								<p data-i18n="about2.item3.desc">Simpan, bagikan, dan aktifkan notifikasi agar info langsung bisa ditindaklanjuti.</p>
 							</div>
 						</div>
 					</div>
@@ -332,8 +383,8 @@
 				<div class="row">
 					<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
 						<div class="area-title center">
-							<h4 class="subtitle">Install DORO Sekarang</h4>
-							<h2>Bagaimana Cara Menggunakan DORO ?</h2>
+							<h4 class="subtitle" data-i18n="process.subtitle">Install DORO Sekarang</h4>
+							<h2 data-i18n="process.title">Bagaimana Cara Menggunakan DORO ?</h2>
 						</div>
 					</div>
 				</div>
@@ -345,22 +396,22 @@
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class="single-process-box text-icon-box xs-mb50 wow fadeInLeft" data-wow-delay="0.3s">
 										<div class="process-icon"><i class="dripicons-download"></i></div>
-										<h3>Unduh Aplikasi</h3>
-										<p>Kamu bisa mengunduh aplikasinya melalui Google Play Store atau Apple App Store</p>
+										<h3 data-i18n="process.step1.title">Unduh Aplikasi</h3>
+										<p data-i18n="process.step1.desc">Kamu bisa mengunduh aplikasinya melalui Google Play Store atau Apple App Store</p>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class="single-process-box text-icon-box xs-mb50 wow fadeInLeft" data-wow-delay="0.6s">
 										<div class="process-icon"><i class="dripicons-user-id"></i></div>
-										<h3>Pilih Universitas dan Jurusan</h3>
-										<p>Gunakan email kampus, aplikasi akan otomatis menyesuaikan dengan kampus kamu</p>
+										<h3 data-i18n="process.step2.title">Pilih Universitas dan Jurusan</h3>
+										<p data-i18n="process.step2.desc">Gunakan email kampus, aplikasi akan otomatis menyesuaikan dengan kampus kamu</p>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class="single-process-box text-icon-box hidden-sm wow fadeInLeft" data-wow-delay="0.9s">
 										<div class="process-icon"><i class="dripicons-calendar"></i></div>
-										<h3>Mulai Gunakan Doro</h3>
-										<p>Nikmati berbagai fitur — atur jadwal, bergabung di komunitas, dan temukan infohub di satu tempat.</p>
+										<h3 data-i18n="process.step3.title">Mulai Gunakan Doro</h3>
+										<p data-i18n="process.step3.desc">Nikmati berbagai fitur — atur jadwal, bergabung di komunitas, dan temukan infohub di satu tempat.</p>
 									</div>
 								</div>
 							</div>
@@ -377,13 +428,13 @@
 				<div class="row flex-v-center">
 					<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 						<div class="area-content sm-center xs-center wow fadeInLeft" data-wow-delay="0.3s">
-							<h3>Partner & Kolaborasi</h3>
-							<p>
+							<h3 data-i18n="goal.title">Partner & Kolaborasi</h3>
+							<p data-i18n="goal.desc">
 								Kami membuka kolaborasi dengan brand, agensi, dan institusi yang ingin menjangkau mahasiswa secara lebih autentik dan relevan. Melalui
 								platform Doro, partner dapat berinteraksi langsung dengan komunitas kampus, menjalankan kampanye digital, atau menawarkan peluang
 								magang dan beasiswa yang terarah.
 							</p>
-							<a href="mailto:doro@dorokampus.com" class="active" style="margin-top: 20px; display: inline-block">
+							<a href="mailto:doro@dorokampus.com" class="active" style="margin-top: 20px; display: inline-block" data-i18n="goal.contact">
 								<b>Kontak Partner</b>: doro@dorokampus.com
 							</a>
 						</div>
@@ -408,9 +459,9 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-6 col-xs-12">
 						<div class="area-content xs-center xs-mb50">
-							<h4 class="subtitle">Clean Design</h4>
-							<h3>DORO Apps Screenshot</h3>
-							<p>
+							<h4 class="subtitle" data-i18n="shot.subtitle">Clean Design</h4>
+							<h3 data-i18n="shot.title">DORO Apps Screenshot</h3>
+							<p data-i18n="shot.desc">
 								Nikmati antarmuka yang bersih dan intuitif, dirancang khusus untuk kebutuhan mahasiswa. Doro memudahkan navigasi dan akses ke fitur
 								utama, sehingga kamu bisa fokus pada hal yang penting.
 							</p>
@@ -446,8 +497,8 @@
 				<div class="row flex-v-center">
 					<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 						<div class="area-title sm-center xs-center">
-							<h4 class="subtitle">Visi</h4>
-							<h2>Visi kami ke depan</h2>
+							<h4 class="subtitle" data-i18n="vision.subtitle">Visi</h4>
+							<h2 data-i18n="vision.title">Visi kami ke depan</h2>
 						</div>
 					</div>
 					<!-- <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
@@ -470,14 +521,14 @@
 												<div class="price-thumb-hidding">
 													<img src="assets/img/icons/rocket.png" alt="" />
 													<div class="price-rate">6-12 mo</div>
-													<div class="price-title">Meningkatkan interaksi dan keterlibatan pengguna</div>
+													<div class="price-title" data-i18n="vision.card1.title">Meningkatkan interaksi dan keterlibatan pengguna</div>
 												</div>
 											</div>
 											<div class="price-details">
 												<ul>
-													<li><i class="dripicons-checkmark"></i> Fitur dasar 0-6 bulan sudah selesai dikembangkan</li>
-													<li><i class="dripicons-minus"></i> Chat</li>
-													<li><i class="dripicons-minus"></i> Test dan Survei</li>
+													<li data-i18n="vision.card1.li1"><i class="dripicons-checkmark"></i> Fitur dasar 0-6 bulan sudah selesai dikembangkan</li>
+													<li data-i18n="vision.card1.li2"><i class="dripicons-minus"></i> Chat</li>
+													<li data-i18n="vision.card1.li3"><i class="dripicons-minus"></i> Test dan Survei</li>
 												</ul>
 											</div>
 										</div>
@@ -489,13 +540,13 @@
 												<div class="price-thumb-hidding">
 													<img src="assets/img/icons/desktop.png" alt="" />
 													<div class="price-rate">12-18 mo</div>
-													<div class="price-title">Memperluas koneksi sosial dan ekonomi mahasiswa</div>
+													<div class="price-title" data-i18n="vision.card2.title">Memperluas koneksi sosial dan ekonomi mahasiswa</div>
 												</div>
 											</div>
 											<div class="price-details">
 												<ul>
-													<li><i class="dripicons-minus"></i> Marketplace</li>
-													<li><i class="dripicons-minus"></i> Student Matching</li>
+													<li data-i18n="vision.card2.li1"><i class="dripicons-minus"></i> Marketplace</li>
+													<li data-i18n="vision.card2.li2"><i class="dripicons-minus"></i> Student Matching</li>
 												</ul>
 											</div>
 											<!-- <div class="price-footer">
@@ -509,13 +560,13 @@
 												<div class="price-thumb-hidding">
 													<img src="assets/img/icons/witing-puzzle.png" alt="" />
 													<div class="price-rate">18+ mo</div>
-													<div class="price-title">Kampus cerdas berbasis personalisasi dan otomatisasi</div>
+													<div class="price-title" data-i18n="vision.card3.title">Kampus cerdas berbasis personalisasi dan otomatisasi</div>
 												</div>
 											</div>
 											<div class="price-details">
 												<ul>
-													<li><i class="dripicons-minus"></i> AI Assistance</li>
-													<li><i class="dripicons-minus"></i> Rekomendasi Otomatis</li>
+													<li data-i18n="vision.card3.li1"><i class="dripicons-minus"></i> AI Assistance</li>
+													<li data-i18n="vision.card3.li2"><i class="dripicons-minus"></i> Rekomendasi Otomatis</li>
 												</ul>
 											</div>
 										</div>
@@ -616,8 +667,8 @@
 					</div>
 					<div class="col-md-6 col-lg-6 col-xs-12">
 						<div class="area-content sm-mb80 xs-mb50">
-							<h4 class="subtitle font500 alt-font uppercase">FAQ</h4>
-							<h2>Pertanyaan yang Sering Diajukan</h2>
+							<h4 class="subtitle font500 alt-font uppercase" data-i18n="faq.subtitle">FAQ</h4>
+							<h2 data-i18n="faq.title">Pertanyaan yang Sering Diajukan</h2>
 							<div class="panel-group sm-mt50 xs-mt50" id="accordion-main">
 								<!-- start tab content -->
 								<div class="panel panel-default active">
@@ -625,13 +676,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseOne">
 											<div class="panel-title">
 												<span>01</span>
-												<span>Apakah Doro menjamin anonimitas ?</span>
+												<span data-i18n="faq.q1">Apakah Doro menjamin anonimitas ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in">
-										<div class="panel-body">Ya. Forum anonim dan identitas asli dipisahkan sepenuhnya, dan konten berisiko disaring otomatis.</div>
+										<div class="panel-body" data-i18n="faq.a1">Ya. Forum anonim dan identitas asli dipisahkan sepenuhnya, dan konten berisiko disaring otomatis.</div>
 									</div>
 								</div>
 								<!-- end tab content -->
@@ -642,13 +693,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseTwo">
 											<div class="panel-title">
 												<span>02</span>
-												<span>Berapa lama proses laporan atau moderasi ?</span>
+												<span data-i18n="faq.q2">Berapa lama proses laporan atau moderasi ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseTwo" class="panel-collapse collapse">
-										<div class="panel-body">Rata-rata antara 24–72 jam sejak laporan diterima.</div>
+										<div class="panel-body" data-i18n="faq.a2">Rata-rata antara 24–72 jam sejak laporan diterima.</div>
 									</div>
 								</div>
 								<!-- end tab content -->
@@ -659,13 +710,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseThree">
 											<div class="panel-title">
 												<span>03</span>
-												<span> Siapa saja yang bisa menggunakan Doro ?</span>
+												<span data-i18n="faq.q3"> Siapa saja yang bisa menggunakan Doro ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseThree" class="panel-collapse collapse">
-										<div class="panel-body">Doro dapat digunakan oleh semua mahasiswa di Indonesia.</div>
+										<div class="panel-body" data-i18n="faq.a3">Doro dapat digunakan oleh semua mahasiswa di Indonesia.</div>
 									</div>
 								</div>
 								<!-- end tab content -->
@@ -676,13 +727,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseFour">
 											<div class="panel-title">
 												<span>04</span>
-												<span>Apa yang terjadi jika akun saya dihapus ?</span>
+												<span data-i18n="faq.q4">Apa yang terjadi jika akun saya dihapus ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseFour" class="panel-collapse collapse">
-										<div class="panel-body">Semua data dihapus sepenuhnya kecuali yang diwajibkan oleh hukum.</div>
+										<div class="panel-body" data-i18n="faq.a4">Semua data dihapus sepenuhnya kecuali yang diwajibkan oleh hukum.</div>
 									</div>
 								</div>
 								<!-- end tab content -->
@@ -693,13 +744,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseFive">
 											<div class="panel-title">
 												<span>05</span>
-												<span> Apakah Doro berbayar ?</span>
+												<span data-i18n="faq.q5"> Apakah Doro berbayar ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseFive" class="panel-collapse collapse">
-										<div class="panel-body">Tidak. Semua fitur utama Doro dapat digunakan secara gratis.</div>
+										<div class="panel-body" data-i18n="faq.a5">Tidak. Semua fitur utama Doro dapat digunakan secara gratis.</div>
 									</div>
 								</div>
 								<!-- end tab content -->
@@ -710,13 +761,13 @@
 										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseSix">
 											<div class="panel-title">
 												<span>06</span>
-												<span>Apakah Doro sudah terdaftar di Komdigi ?</span>
+												<span data-i18n="faq.q6">Apakah Doro sudah terdaftar di Komdigi ?</span>
 												<i class="pull-right fa fa-angle-down"></i>
 											</div>
 										</a>
 									</div>
 									<div id="collapseSix" class="panel-collapse collapse">
-										<div class="panel-body">
+										<div class="panel-body" data-i18n="faq.a6">
 											Doro telah <b>terdaftar sebagai Penyelenggara Sistem Elektronik (PSE)</b> di Kominfo melalui portal Komdigi.
 											<!-- Nomor registrasi
 											resmi: [291025011370800000001], dan statusnya aktif serta dapat diverifikasi di situs Kominfo. -->
@@ -738,9 +789,9 @@
 				<div class="row">
 					<div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
 						<div class="area-title center">
-							<h4 class="subtitle">Keamanan & Privasi</h4>
-							<h2>Komitmen Kami Melindungi Data Anda</h2>
-							<p class="mt20">
+							<h4 class="subtitle" data-i18n="sec.subtitle">Keamanan & Privasi</h4>
+							<h2 data-i18n="sec.title">Komitmen Kami Melindungi Data Anda</h2>
+							<p class="mt20" data-i18n="sec.desc">
 								Doro mematuhi Undang-Undang No.27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP) dan hanya memproses data setelah mendapatkan
 								persetujuan eksplisit dari pengguna.
 							</p>
@@ -752,32 +803,32 @@
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="text-icon-box doro-security-box mb30 wow fadeInUp" data-wow-delay="0.3s">
 							<div class="box-icon"><i class="dripicons-lock"></i></div>
-							<h4>Pengumpulan Data Minimal</h4>
-							<p>Kami hanya mengumpulkan data yang diperlukan dengan tujuan yang jelas dan transparan</p>
+							<h4 data-i18n="sec.box1.title">Pengumpulan Data Minimal</h4>
+							<p data-i18n="sec.box1.desc">Kami hanya mengumpulkan data yang diperlukan dengan tujuan yang jelas dan transparan</p>
 						</div>
 					</div>
 
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="text-icon-box doro-security-box mb30 wow fadeInUp" data-wow-delay="0.6s">
 							<div class="box-icon"><i class="dripicons-user"></i></div>
-							<h4>Hak Pengguna</h4>
-							<p>Anda berhak mengakses, memperbaiki, dan menghapus data pribadi Anda kapan saja</p>
+							<h4 data-i18n="sec.box2.title">Hak Pengguna</h4>
+							<p data-i18n="sec.box2.desc">Anda berhak mengakses, memperbaiki, dan menghapus data pribadi Anda kapan saja</p>
 						</div>
 					</div>
 
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="text-icon-box doro-security-box mb30 wow fadeInUp" data-wow-delay="0.9s">
 							<div class="box-icon"><i class="dripicons-broadcast"></i></div>
-							<h4>Pemberitahuan Transfer</h4>
-							<p>Kami akan memberi tahu Anda sebelum ada transfer data lintas negara</p>
+							<h4 data-i18n="sec.box3.title">Pemberitahuan Transfer</h4>
+							<p data-i18n="sec.box3.desc">Kami akan memberi tahu Anda sebelum ada transfer data lintas negara</p>
 						</div>
 					</div>
 
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="text-icon-box doro-security-box mb30 wow fadeInUp" data-wow-delay="1.2s">
 							<div class="box-icon"><i class="dripicons-clock"></i></div>
-							<h4>Respons Cepat</h4>
-							<p>Permintaan pengguna dijawab maksimal dalam 3×24 jam</p>
+							<h4 data-i18n="sec.box4.title">Respons Cepat</h4>
+							<p data-i18n="sec.box4.desc">Permintaan pengguna dijawab maksimal dalam 3×24 jam</p>
 						</div>
 					</div>
 				</div>
@@ -785,10 +836,10 @@
 				<div class="row mt40">
 					<div class="col-md-12 text-center">
 						<div class="doro-privacy-links">
-							<a href="terms.html" class="read-more">Ketentuan Layanan</a>
-							<a href="privacy.html" class="read-more">Kebijakan Privasi</a>
-							<a href="guideline.html" class="read-more">Panduan Komunitas</a>
-							<a href="delete-account.html" class="read-more">Cara Hapus Akun</a>
+							<a href="terms.html" class="read-more" data-i18n="link.terms">Ketentuan Layanan</a>
+							<a href="privacy.html" class="read-more" data-i18n="link.privacy">Kebijakan Privasi</a>
+							<a href="guideline.html" class="read-more" data-i18n="link.guideline">Panduan Komunitas</a>
+							<a href="delete-account.html" class="read-more" data-i18n="link.delete">Cara Hapus Akun</a>
 						</div>
 					</div>
 				</div>
@@ -802,9 +853,9 @@
 				<div class="row">
 					<div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
 						<div class="area-title center">
-							<h4 class="subtitle">Kontak Resmi</h4>
-							<h2>Hubungi Kami</h2>
-							<p class="mt20">Tim kami siap membantu Anda. Respon maksimal dalam 3×24 jam.</p>
+							<h4 class="subtitle" data-i18n="contact.subtitle">Kontak Resmi</h4>
+							<h2 data-i18n="contact.title">Hubungi Kami</h2>
+							<p class="mt20" data-i18n="contact.desc">Tim kami siap membantu Anda. Respon maksimal dalam 3×24 jam.</p>
 						</div>
 					</div>
 				</div>
@@ -813,7 +864,7 @@
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="doro-contact-info-box mb30 wow fadeInUp" data-wow-delay="0.3s">
 							<div class="contact-info-icon"><i class="dripicons-mail"></i></div>
-							<h4>Email</h4>
+							<h4 data-i18n="contact.email.label">Email</h4>
 							<a href="mailto:support@dorokampus.com">support@dorokampus.com</a>
 						</div>
 					</div>
@@ -821,7 +872,7 @@
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="doro-contact-info-box mb30 wow fadeInUp" data-wow-delay="0.6s">
 							<div class="contact-info-icon"><i class="dripicons-message"></i></div>
-							<h4>WhatsApp</h4>
+							<h4 data-i18n="contact.wa.label">WhatsApp</h4>
 							<a href="https://wa.me/6282128561022" target="_blank">+62 821-2856-1022</a>
 						</div>
 					</div>
@@ -829,7 +880,7 @@
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="doro-contact-info-box mb30 wow fadeInUp" data-wow-delay="0.9s">
 							<div class="contact-info-icon"><i class="dripicons-user-id"></i></div>
-							<h4>DPO (Data Protection Officer)</h4>
+							<h4 data-i18n="contact.dpo.label">DPO (Data Protection Officer)</h4>
 							<p>Davy Lutfhan Satria</p>
 							<a href="https://wa.me/6282310365069" target="_blank">+62 823-1036-5069</a>
 							<a href="mailto:admin@dorokampus.com">admin@dorokampus.com</a>
@@ -839,7 +890,7 @@
 					<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12">
 						<div class="doro-contact-info-box mb30 wow fadeInUp" data-wow-delay="1.2s">
 							<div class="contact-info-icon"><i class="dripicons-checkmark"></i></div>
-							<h4>Status PSE</h4>
+							<h4 data-i18n="contact.pse.label">Status PSE</h4>
 							<p style="color: #007bff; font-weight: bold;">291025011370800000001</p>
 						</div>
 					</div>
@@ -847,7 +898,7 @@
 
 				<div class="row mt40">
 					<div class="col-md-12 text-center">
-						<h3 class="mb30">Download Aplikasi Sekarang</h3>
+						<h3 class="mb30" data-i18n="contact.download">Download Aplikasi Sekarang</h3>
 						<div class="doro-app-download-buttons">
 							<a href="https://play.google.com/store/apps/details?id=com.doromobileapps" target="_blank" class="wow fadeInUp" data-wow-delay="0.3s">
 								<img src="assets/img/cta/logo-google-play.webp" alt="Download di Google Play" height="60" width="180" />
@@ -857,7 +908,7 @@
 							</a>
 						</div>
 						<div class="mt30">
-							<a href="#contact" class="read-more active">Gabung Program Pilot</a>
+							<a href="#contact" class="read-more active" data-i18n="contact.joinpilot">Gabung Program Pilot</a>
 						</div>
 					</div>
 				</div>
@@ -871,8 +922,8 @@
 				<div class="row">
 					<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
 						<div class="area-title center">
-							<h4 class="subtitle">Program Pilot</h4>
-							<h2>Ayo bergabung dan berkembang bersama kami</h2>
+							<h4 class="subtitle" data-i18n="pilot.subtitle">Program Pilot</h4>
+							<h2 data-i18n="pilot.title">Ayo bergabung dan berkembang bersama kami</h2>
 						</div>
 					</div>
 				</div>
@@ -881,13 +932,13 @@
 						<div class="contact-content padding50 mb50">
 							<div class="single-contact">
 								<div class="contact-icon"><i class="dripicons-user-group"></i></div>
-								<h3>Siapa yang bisa bergabung ?</h3>
-								<p>Universitas, komunitas, perusahaan, lembaga, dan individu yang ingin membangun ekosistem kampus yang lebih terhubung</p>
+								<h3 data-i18n="pilot.who.title">Siapa yang bisa bergabung ?</h3>
+								<p data-i18n="pilot.who.desc">Universitas, komunitas, perusahaan, lembaga, dan individu yang ingin membangun ekosistem kampus yang lebih terhubung</p>
 							</div>
 							<div class="single-contact">
 								<div class="contact-icon"><i class="dripicons-trophy"></i></div>
-								<h3>Keuntungan</h3>
-								<p>
+								<h3 data-i18n="pilot.benefit.title">Keuntungan</h3>
+								<p data-i18n="pilot.benefit.desc">
 									Kolaborasimu akan berkontribusi langsung pada pengembangan Doro, dan setiap mitra atau kampus peserta akan menerima laporan hasil
 									program pilot.
 								</p>
@@ -901,20 +952,21 @@
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-email">Email resmi (kampus / organisasi / perusahaan)</label>
-												<input type="email" class="form-control" id="form-email" placeholder="contact@namaorganisasi.com" required />
+												<label for="form-email" data-i18n="form.email.label">Email resmi (kampus / organisasi / perusahaan)</label>
+												<input type="email" class="form-control" id="form-email" placeholder="contact@namaorganisasi.com" data-i18n-placeholder="form.email.ph" required />
 											</div>
 										</div>
 									</div>
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-university">Institusi / Organisasi</label>
+												<label for="form-university" data-i18n="form.institution.label">Institusi / Organisasi</label>
 												<input
 													type="text"
 													class="form-control"
 													id="form-university"
 													placeholder=" Universitas Doro / PT Doro Indonesia / Komunitas Mahasiswa Doro"
+													data-i18n-placeholder="form.institution.ph"
 													required />
 											</div>
 										</div>
@@ -922,20 +974,21 @@
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-subject">Departemen / Bidang</label>
-												<input type="text" class="form-control" id="form-subject" placeholder="Sistem Informasi / HR & Partnership / BEM" required />
+												<label for="form-subject" data-i18n="form.dept.label">Departemen / Bidang</label>
+												<input type="text" class="form-control" id="form-subject" placeholder="Sistem Informasi / HR & Partnership / BEM" data-i18n-placeholder="form.dept.ph" required />
 											</div>
 										</div>
 									</div>
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-role">Peran</label>
+												<label for="form-role" data-i18n="form.role.label">Peran</label>
 												<input
 													type="text"
 													class="form-control"
 													id="form-role"
 													placeholder="Mahasiswa / Dosen / Admin Kampus / Perwakilan Organisasi / Brand Partner"
+													data-i18n-placeholder="form.role.ph"
 													required />
 											</div>
 										</div>
@@ -943,27 +996,28 @@
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-contact">Kontak WhatsApp</label>
-												<input type="tel" class="form-control" id="form-contact" placeholder="08123456789" required />
+												<label for="form-contact" data-i18n="form.wa.label">Kontak WhatsApp</label>
+												<input type="tel" class="form-control" id="form-contact" placeholder="08123456789" data-i18n-placeholder="form.wa.ph" required />
 											</div>
 										</div>
 									</div>
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group">
 											<div class="form-input">
-												<label for="form-message">Pesan Kamu</label>
+												<label for="form-message" data-i18n="form.message.label">Pesan Kamu</label>
 												<textarea
 													class="form-control"
 													rows="6"
 													id="form-message"
 													placeholder="Ceritakan tujuan kolaborasi atau ketertarikan kamu terhadap program pilot Doro..."
+													data-i18n-placeholder="form.message.ph"
 													required></textarea>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 										<div class="form-group mb0">
-											<button class="read-more active" type="submit">Kirim via WhatsApp</button>
+											<button class="read-more active" type="submit" data-i18n="form.submit">Kirim via WhatsApp</button>
 										</div>
 									</div>
 								</div>
@@ -986,7 +1040,7 @@
 								<h4 class="wow fadeInUp" data-wow-delay="0.3s">
 									<a href="index.html" class="custom-logo-link default-logo"><img src="assets/img/logo-2.png" alt="logo" /></a>
 								</h4>
-								<p>Platform yang membantu mahasiswa Indonesia menjalani kehidupan kampus dengan lebih efisien dan terhubung.</p>
+								<p data-i18n="footer.desc">Platform yang membantu mahasiswa Indonesia menjalani kehidupan kampus dengan lebih efisien dan terhubung.</p>
 								<div class="mt30">
 									<p><i class="dripicons-mail"></i> <a href="mailto:contact@dorokampus.com">contact@dorokampus.com</a></p>
 									<p>
@@ -999,33 +1053,33 @@
 
 						<div class="col-md-2 col-sm-4 col-xs-12">
 							<div class="single-widgets xs-mb50">
-								<h3>Navigasi</h3>
+								<h3 data-i18n="footer.nav.title">Navigasi</h3>
 								<ul>
-									<li><a href="#home">Beranda</a></li>
-									<li><a href="#features">Fitur</a></li>
-									<li><a href="#about">Tentang Kami</a></li>
-									<li><a href="#pricing">Visi</a></li>
-									<li><a href="#contact">Program Pilot</a></li>
+									<li><a href="#home" data-i18n="nav.home">Beranda</a></li>
+									<li><a href="#features" data-i18n="nav.features">Fitur</a></li>
+									<li><a href="#about" data-i18n="nav.about">Tentang Kami</a></li>
+									<li><a href="#pricing" data-i18n="footer.nav.vision">Visi</a></li>
+									<li><a href="#contact" data-i18n="nav.pilot">Program Pilot</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-sm-4 col-xs-12">
 							<div class="single-widgets xs-mb50">
-								<h3>Legal</h3>
+								<h3 data-i18n="footer.legal.title">Legal</h3>
 								<ul>
-									<li><a href="terms.html">Ketentuan Layanan</a></li>
-									<li><a href="privacy.html">Kebijakan Privasi</a></li>
-									<li><a href="guideline.html">Panduan Komunitas</a></li>
-									<li><a href="delete-account.html">Cara Hapus Akun</a></li>
+									<li><a href="terms.html" data-i18n="link.terms">Ketentuan Layanan</a></li>
+									<li><a href="privacy.html" data-i18n="link.privacy">Kebijakan Privasi</a></li>
+									<li><a href="guideline.html" data-i18n="link.guideline">Panduan Komunitas</a></li>
+									<li><a href="delete-account.html" data-i18n="link.delete">Cara Hapus Akun</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-sm-4 col-xs-12">
 							<div class="single-widgets">
-								<h3>Ikuti Kami</h3>
-								<p>Dapatkan update terbaru tentang Doro Kampus</p>
+								<h3 data-i18n="footer.follow.title">Ikuti Kami</h3>
+								<p data-i18n="footer.follow.desc">Dapatkan update terbaru tentang Doro Kampus</p>
 								<div class="footer-social-icons mt30">
 									<a href="https://www.instagram.com/doro_kampus" target="_blank">
 										<svg role="img" viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
@@ -1050,7 +1104,7 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 							<div class="footer-copyright text-center">
-								<p>© 2025 Doro Kampus. Semua hak cipta dilindungi.</p>
+								<p data-i18n="footer.copyright">© 2025 Doro Kampus. Semua hak cipta dilindungi.</p>
 							</div>
 						</div>
 					</div>
@@ -1075,6 +1129,9 @@
 					return false;
 				}
 
+				// Bahasa aktif (id / en)
+				const lang = window.doroI18n ? window.doroI18n.lang() : "id";
+
 				// Ambil data dari form (pastikan ada value, bukan placeholder)
 				const email = document.getElementById("form-email").value;
 				const university = document.getElementById("form-university").value;
@@ -1083,48 +1140,57 @@
 				const contact = document.getElementById("form-contact").value;
 				const message = document.getElementById("form-message").value;
 
-				// Validasi tambahan: pastikan tidak ada yang kosong atau sama dengan placeholder
-				if (
-					!email ||
-					!university ||
-					!subject ||
-					!role ||
-					!contact ||
-					!message ||
-					email === "contact@namaorganisasi.com" ||
-					university === "Universitas Doro / PT Doro Indonesia / Komunitas Mahasiswa Doro" ||
-					subject === "Sistem Informasi / HR & Partnership / BEM" ||
-					role === "Mahasiswa / Dosen / Admin Kampus / Perwakilan Organisasi / Brand Partner" ||
-					contact === "08123456789" ||
-					message === "Ceritakan tujuan kolaborasi atau ketertarikan kamu terhadap program pilot Doro..."
-				) {
-					alert("Mohon isi semua field dengan data yang valid!");
+				// Validasi tambahan: pastikan tidak ada yang kosong
+				if (!email || !university || !subject || !role || !contact || !message) {
+					alert(lang === "en" ? "Please fill in all fields with valid data!" : "Mohon isi semua field dengan data yang valid!");
 					return false;
 				}
 
-				// Nomor WhatsApp tujuan (GANTI DENGAN NOMOR ANDA)
+				// Nomor WhatsApp tujuan
 				// Format: 62 untuk Indonesia, tanpa + dan tanpa 0 di awal
-				const whatsappNumber = "6282128561022"; // GANTI INI!
+				const whatsappNumber = "6282128561022";
 
-				// Buat pesan WhatsApp yang profesional
-				const whatsappMessage = `Halo Tim Doro,
-            
-            Saya tertarik untuk bergabung dalam Program Pilot Doro Kampus. Berikut adalah informasi saya:
-            
-            *Informasi Peserta:*
-            • Email: ${email}
-            • Universitas: ${university}
-            • Jurusan: ${subject}
-            • Peran: ${role}
-            • No. WhatsApp: ${contact}
-            
-            *Pesan:*
-            ${message}
-            
-            Terima kasih atas perhatiannya. Saya menunggu informasi selanjutnya.
-            
-            Salam,
-            _Dikirim melalui website Doro Kampus_`;
+				// Buat pesan WhatsApp sesuai bahasa
+				let whatsappMessage;
+				if (lang === "en") {
+					whatsappMessage = `Hello Doro Team,
+
+I'm interested in joining the Doro Kampus Pilot Program. Here is my information:
+
+*Participant Info:*
+• Email: ${email}
+• University: ${university}
+• Department: ${subject}
+• Role: ${role}
+• WhatsApp No.: ${contact}
+
+*Message:*
+${message}
+
+Thank you for your attention. I look forward to the next steps.
+
+Best regards,
+_Sent via the Doro Kampus website_`;
+				} else {
+					whatsappMessage = `Halo Tim Doro,
+
+Saya tertarik untuk bergabung dalam Program Pilot Doro Kampus. Berikut adalah informasi saya:
+
+*Informasi Peserta:*
+• Email: ${email}
+• Universitas: ${university}
+• Jurusan: ${subject}
+• Peran: ${role}
+• No. WhatsApp: ${contact}
+
+*Pesan:*
+${message}
+
+Terima kasih atas perhatiannya. Saya menunggu informasi selanjutnya.
+
+Salam,
+_Dikirim melalui website Doro Kampus_`;
+				}
 
 				// Encode pesan untuk URL
 				const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -1167,8 +1233,8 @@
 
                         <!--===== ACTIVE JS=====-->
 		<script src="assets/js/main.js" defer></script>
+
+                        <!--===== LANGUAGE (i18n) =====-->
+		<script src="assets/js/i18n.js" defer></script>
 	</body>
 </html>
-
-
-
